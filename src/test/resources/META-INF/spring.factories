@@ -1,0 +1,1 @@
+org.springframework.test.context.ContextCustomizerFactory = dz.enageo.rhr.config.TestContainersSpringContextCustomizerFactory
