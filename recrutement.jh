@@ -1,0 +1,164 @@
+/**
+ * Recrutement JDL
+ * @author  amoura.md.rachid@gmail.com
+ * 
+ */
+enum Etat {
+    ETAT1,ETAT2
+}
+enum TypeOffre {
+	TYPE1, TYPE2
+}
+enum TypeDemande {
+	TYPE1, TYPE2
+}
+
+enum TypePoste {
+ TYPEPOSTE1, TYPEPOSTE2
+}
+
+enum Situation {
+	SITUATION1, SITUATION1
+}
+entity Personne {
+	nom String required maxlength(30),
+    prenom String required maxlength(30),
+    dateNaissance LocalDate required,
+    tel String pattern(/^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$/),
+    numeroInscription String,
+    dateOrientation LocalDate
+}
+
+entity Candidat {
+	nom String required maxlength(30),
+    prenom String required maxlength(30),
+    dateNaissance LocalDate required,
+    tel String  required pattern(/^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$/),
+    numeroInscription String
+}
+
+entity Examen {
+    datePrevue LocalDate required,
+    dateExamen LocalDate required,
+    etat Etat,
+    lieuExamen String,
+    miniDossier String
+
+}
+/**
+ * OffrePoste entity.
+ * @author The AMOUAR MOHAND RACHID.
+ */
+entity OffrePoste {
+    nbr Integer required,
+    exigence String
+}
+
+/**
+ * The Offre entity.
+ */
+entity Offre {
+    numeroOffre String required maxlength(30),
+    dateOffre LocalDate required,
+    dateDepot LocalDate required,
+    etatOffre Etat,
+    typeOffre TypeOffre,
+    singnataire String	
+}
+
+entity Poste {
+    nomPoste String required maxlength(30),
+    numeroPoste String maxlength(30),
+    diponible Boolean,
+    typePoste TypePoste
+}
+entity Prevision {
+    dateAjout LocalDate required    
+}
+
+entity Demande {
+	ref String required maxlength(60),
+	typeDemande TypeDemande ,
+	dateDepot LocalDate,
+    etat Etat   
+}
+
+entity Accord {
+	validateur String required maxlength(30),
+	numeroAccord String required maxlength(30),
+    dateArrivee LocalDate
+}
+
+entity HistoriqueOffre {
+    dateHistorique LocalDate required,
+    etat Etat
+}
+
+entity Agence {
+    libelle String required maxlength(30),
+    tel String pattern(/^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$/)
+} 
+
+entity Ville {
+    libelle String maxlength(30) 	
+}
+
+entity Orientation {
+    libelle String maxlength(30)
+}
+
+entity Structure {
+	nom String required maxlength(30)
+}
+
+// Table association 
+
+
+entity CandidatExamen {
+    present Boolean,
+    admis Boolean,
+    reserve Boolean,
+    situation Situation
+}
+
+entity OrientationCandidat {
+    dateOrientation LocalDate
+}
+
+entity PrevisionPoste {
+    dateAjout LocalDate
+}
+
+// Relations 
+relationship OneToOne {
+  Demande{auteur} to Accord
+  OffrePoste{orientation} to Orientation
+
+	
+}
+relationship ManyToOne {
+  Offre{demande} to Demande	  
+  Offre{historiqueOffre} to HistoriqueOffre
+  Structure{demande} to Demande
+  Structure{offre} to Offre
+  Agence{ville} to Ville
+  Orientation{agence} to Agence
+  Prevision{agence} to Agence
+  Agence{agence} to Agence
+  Examen{offrePoste} to OffrePoste
+  Offre{agence} to Agence
+}
+
+
+relationship ManyToMany {
+	CandidatExamen{candidat} to Candidat{examen}
+    CandidatExamen{examen} to Examen{candidat}
+    
+    OrientationCandidat{candidat} to Candidat{orientation}
+    OrientationCandidat{orientation} to Orientation{candidat}
+    
+    PrevisionPoste{prevision} to Prevision{poste}
+    PrevisionPoste{poste} to Poste{prevision}
+    
+    
+}
