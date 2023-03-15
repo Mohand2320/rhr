@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-candidat-examen-heading"
+        data-cy="CandidatExamenCreateUpdateHeading"
+        jhiTranslate="rhRecrutementApp.candidatExamen.home.createOrEditLabel"
+      >
+        Créer ou éditer un Candidat Examen
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.candidatExamen.present" for="field_present">Present</label>
+          <input type="checkbox" class="form-check" name="present" id="field_present" data-cy="present" formControlName="present" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.candidatExamen.admis" for="field_admis">Admis</label>
+          <input type="checkbox" class="form-check" name="admis" id="field_admis" data-cy="admis" formControlName="admis" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.candidatExamen.reserve" for="field_reserve">Reserve</label>
+          <input type="checkbox" class="form-check" name="reserve" id="field_reserve" data-cy="reserve" formControlName="reserve" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.candidatExamen.situation" for="field_situation">Situation</label>
+          <select class="form-control" name="situation" formControlName="situation" id="field_situation" data-cy="situation">
+            <option [ngValue]="null">{{ 'rhRecrutementApp.Situation.null' | translate }}</option>
+            <option *ngFor="let situation of situationValues" [value]="situation">
+              {{ 'rhRecrutementApp.Situation.' + situation | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="rhRecrutementApp.candidatExamen.candidat" for="field_candidats">Candidat</label>
+          <select
+            class="form-control"
+            id="field_candidats"
+            data-cy="candidat"
+            multiple
+            name="candidats"
+            formControlName="candidats"
+            [compareWith]="compareCandidat"
+          >
+            <option [ngValue]="candidatOption" *ngFor="let candidatOption of candidatsSharedCollection">{{ candidatOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="rhRecrutementApp.candidatExamen.examen" for="field_examen">Examen</label>
+          <select
+            class="form-control"
+            id="field_examen"
+            data-cy="examen"
+            multiple
+            name="examen"
+            formControlName="examen"
+            [compareWith]="compareExamen"
+          >
+            <option [ngValue]="examenOption" *ngFor="let examenOption of examenSharedCollection">{{ examenOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

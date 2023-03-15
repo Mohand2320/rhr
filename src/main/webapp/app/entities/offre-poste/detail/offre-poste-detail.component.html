@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="offrePoste">
+      <h2 data-cy="offrePosteDetailsHeading"><span jhiTranslate="rhRecrutementApp.offrePoste.detail.title">Offre Poste</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ offrePoste.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offrePoste.nbr">Nbr</span></dt>
+        <dd>
+          <span>{{ offrePoste.nbr }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offrePoste.exigence">Exigence</span></dt>
+        <dd>
+          <span>{{ offrePoste.exigence }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offrePoste.orientation">Orientation</span></dt>
+        <dd>
+          <div *ngIf="offrePoste.orientation">
+            <a [routerLink]="['/orientation', offrePoste.orientation.id, 'view']">{{ offrePoste.orientation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/offre-poste', offrePoste.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

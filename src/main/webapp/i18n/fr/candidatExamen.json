@@ -1,0 +1,29 @@
+{
+  "rhRecrutementApp": {
+    "candidatExamen": {
+      "home": {
+        "title": "CandidatExamen",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Candidat Examen",
+        "createOrEditLabel": "Créer ou éditer un Candidat Examen",
+        "notFound": "Aucun Candidat Examen trouvé"
+      },
+      "created": "Un nouveau Candidat Examen a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Candidat Examen avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Candidat Examen avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Candidat Examen {{ id }} ?"
+      },
+      "detail": {
+        "title": "Candidat Examen"
+      },
+      "id": "ID",
+      "present": "Present",
+      "admis": "Admis",
+      "reserve": "Reserve",
+      "situation": "Situation",
+      "candidat": "Candidat",
+      "examen": "Examen"
+    }
+  }
+}

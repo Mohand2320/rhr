@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "orientationCandidat": {
+      "home": {
+        "title": "Orientation Candidats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Orientation Candidat",
+        "createOrEditLabel": "Create or edit a Orientation Candidat",
+        "notFound": "No Orientation Candidats found"
+      },
+      "created": "A new Orientation Candidat is created with identifier {{ param }}",
+      "updated": "A Orientation Candidat is updated with identifier {{ param }}",
+      "deleted": "A Orientation Candidat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Orientation Candidat {{ id }}?"
+      },
+      "detail": {
+        "title": "Orientation Candidat"
+      },
+      "id": "ID",
+      "dateOrientation": "Date Orientation",
+      "candidat": "Candidat",
+      "orientation": "Orientation"
+    }
+  }
+}

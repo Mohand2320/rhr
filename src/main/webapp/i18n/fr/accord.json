@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "accord": {
+      "home": {
+        "title": "Accords",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Accord",
+        "createOrEditLabel": "Créer ou éditer un Accord",
+        "notFound": "Aucun Accord trouvé"
+      },
+      "created": "Un nouveau Accord a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Accord avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Accord avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Accord {{ id }} ?"
+      },
+      "detail": {
+        "title": "Accord"
+      },
+      "id": "ID",
+      "validateur": "Validateur",
+      "numeroAccord": "Numero Accord",
+      "dateArrivee": "Date Arrivee"
+    }
+  }
+}

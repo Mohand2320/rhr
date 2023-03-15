@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090150",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "prevision_poste",
+  "fields": [
+    {
+      "fieldName": "dateAjout",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PrevisionPoste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prevision",
+      "otherEntityRelationshipName": "poste",
+      "ownerSide": true,
+      "relationshipName": "prevision",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "poste",
+      "otherEntityRelationshipName": "prevision",
+      "ownerSide": true,
+      "relationshipName": "poste",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

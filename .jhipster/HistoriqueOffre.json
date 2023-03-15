@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090143",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "historique_offre",
+  "fields": [
+    {
+      "fieldName": "dateHistorique",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldTypeJavadoc": "Recrutement JDL\\n@author  amoura.md.rachid@gmail.com\\n",
+      "fieldValues": "ETAT1,ETAT2"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "HistoriqueOffre",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

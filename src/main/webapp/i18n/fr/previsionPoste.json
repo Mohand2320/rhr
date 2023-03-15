@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "previsionPoste": {
+      "home": {
+        "title": "PrevisionPostes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Prevision Poste",
+        "createOrEditLabel": "Créer ou éditer un Prevision Poste",
+        "notFound": "Aucun Prevision Poste trouvé"
+      },
+      "created": "Un nouveau Prevision Poste a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Prevision Poste avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Prevision Poste avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Prevision Poste {{ id }} ?"
+      },
+      "detail": {
+        "title": "Prevision Poste"
+      },
+      "id": "ID",
+      "dateAjout": "Date Ajout",
+      "prevision": "Prevision",
+      "poste": "Poste"
+    }
+  }
+}

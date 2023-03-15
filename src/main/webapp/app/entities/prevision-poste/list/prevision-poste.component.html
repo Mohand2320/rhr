@@ -1,0 +1,112 @@
+<div>
+  <h2 id="page-heading" data-cy="PrevisionPosteHeading">
+    <span jhiTranslate="rhRecrutementApp.previsionPoste.home.title">PrevisionPostes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.previsionPoste.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-prevision-poste"
+        [routerLink]="['/prevision-poste/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.previsionPoste.home.createLabel"> Créer un nouveau Prevision Poste </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="previsionPostes?.length === 0">
+    <span jhiTranslate="rhRecrutementApp.previsionPoste.home.notFound">Aucun Prevision Poste trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="previsionPostes && previsionPostes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dateAjout">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.previsionPoste.dateAjout">Date Ajout</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prevision.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.previsionPoste.prevision">Prevision</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="poste.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.previsionPoste.poste">Poste</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let previsionPoste of previsionPostes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/prevision-poste', previsionPoste.id, 'view']">{{ previsionPoste.id }}</a>
+          </td>
+          <td>{{ previsionPoste.dateAjout | formatMediumDate }}</td>
+          <td>
+            <span *ngFor="let prevision of previsionPoste.previsions; let last = last">
+              <a class="form-control-static" [routerLink]="['/prevision', prevision.id, 'view']">{{ prevision.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let poste of previsionPoste.postes; let last = last">
+              <a class="form-control-static" [routerLink]="['/poste', poste.id, 'view']">{{ poste.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/prevision-poste', previsionPoste.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/prevision-poste', previsionPoste.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(previsionPoste)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

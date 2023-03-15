@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090140",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "prevision",
+  "fields": [
+    {
+      "fieldName": "dateAjout",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Prevision",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "agence",
+      "relationshipName": "agence",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "previsionPoste",
+      "otherEntityRelationshipName": "prevision",
+      "ownerSide": false,
+      "relationshipName": "poste",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

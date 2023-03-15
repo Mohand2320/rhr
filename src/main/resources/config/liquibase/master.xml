@@ -17,7 +17,35 @@
     <property name="datetimeType" value="datetime(6)" dbms="mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090134_added_entity_Personne.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090135_added_entity_Candidat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090136_added_entity_Examen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090137_added_entity_OffrePoste.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090138_added_entity_Offre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090139_added_entity_Poste.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090140_added_entity_Prevision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090141_added_entity_Demande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090142_added_entity_Accord.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090143_added_entity_HistoriqueOffre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090144_added_entity_Agence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090145_added_entity_Ville.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090146_added_entity_Orientation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090147_added_entity_Structure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090148_added_entity_CandidatExamen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090149_added_entity_OrientationCandidat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090150_added_entity_PrevisionPoste.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230315090136_added_entity_constraints_Examen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090137_added_entity_constraints_OffrePoste.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090138_added_entity_constraints_Offre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090140_added_entity_constraints_Prevision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090141_added_entity_constraints_Demande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090144_added_entity_constraints_Agence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090146_added_entity_constraints_Orientation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090147_added_entity_constraints_Structure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090148_added_entity_constraints_CandidatExamen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090149_added_entity_constraints_OrientationCandidat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230315090150_added_entity_constraints_PrevisionPoste.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

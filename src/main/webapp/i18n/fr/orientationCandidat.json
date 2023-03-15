@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "orientationCandidat": {
+      "home": {
+        "title": "OrientationCandidats",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Orientation Candidat",
+        "createOrEditLabel": "Créer ou éditer un Orientation Candidat",
+        "notFound": "Aucun Orientation Candidat trouvé"
+      },
+      "created": "Un nouveau Orientation Candidat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Orientation Candidat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Orientation Candidat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Orientation Candidat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Orientation Candidat"
+      },
+      "id": "ID",
+      "dateOrientation": "Date Orientation",
+      "candidat": "Candidat",
+      "orientation": "Orientation"
+    }
+  }
+}

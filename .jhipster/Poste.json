@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090139",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "poste",
+  "fields": [
+    {
+      "fieldName": "nomPoste",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "numeroPoste",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "diponible",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "typePoste",
+      "fieldType": "TypePoste",
+      "fieldValues": "TYPEPOSTE1,TYPEPOSTE2"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Poste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "previsionPoste",
+      "otherEntityRelationshipName": "poste",
+      "ownerSide": false,
+      "relationshipName": "prevision",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

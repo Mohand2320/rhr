@@ -1,0 +1,133 @@
+<div>
+  <h2 id="page-heading" data-cy="CandidatExamenHeading">
+    <span jhiTranslate="rhRecrutementApp.candidatExamen.home.title">CandidatExamen</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.candidatExamen.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-candidat-examen"
+        [routerLink]="['/candidat-examen/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.candidatExamen.home.createLabel"> Créer un nouveau Candidat Examen </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="candidatExamen?.length === 0">
+    <span jhiTranslate="rhRecrutementApp.candidatExamen.home.notFound">Aucun Candidat Examen trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="candidatExamen && candidatExamen.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="present">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.present">Present</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="admis">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.admis">Admis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reserve">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.reserve">Reserve</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="situation">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.situation">Situation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="candidat.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.candidat">Candidat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="examen.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.candidatExamen.examen">Examen</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidatExamen of candidatExamen; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/candidat-examen', candidatExamen.id, 'view']">{{ candidatExamen.id }}</a>
+          </td>
+          <td>{{ candidatExamen.present }}</td>
+          <td>{{ candidatExamen.admis }}</td>
+          <td>{{ candidatExamen.reserve }}</td>
+          <td jhiTranslate="{{ 'rhRecrutementApp.Situation.' + candidatExamen.situation }}">{{ candidatExamen.situation }}</td>
+          <td>
+            <span *ngFor="let candidat of candidatExamen.candidats; let last = last">
+              <a class="form-control-static" [routerLink]="['/candidat', candidat.id, 'view']">{{ candidat.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let examen of candidatExamen.examen; let last = last">
+              <a class="form-control-static" [routerLink]="['/examen', examen.id, 'view']">{{ examen.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/candidat-examen', candidatExamen.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/candidat-examen', candidatExamen.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(candidatExamen)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

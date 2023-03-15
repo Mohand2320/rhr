@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090136",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "examen",
+  "fields": [
+    {
+      "fieldName": "datePrevue",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateExamen",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldTypeJavadoc": "Recrutement JDL\\n@author  amoura.md.rachid@gmail.com\\n",
+      "fieldValues": "ETAT1,ETAT2"
+    },
+    {
+      "fieldName": "lieuExamen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "miniDossier",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Examen",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "offrePoste",
+      "relationshipName": "offrePoste",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "candidatExamen",
+      "otherEntityRelationshipName": "examen",
+      "ownerSide": false,
+      "relationshipName": "candidat",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

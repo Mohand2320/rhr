@@ -1,0 +1,25 @@
+{
+  "rhRecrutementApp": {
+    "historiqueOffre": {
+      "home": {
+        "title": "Historique Offres",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Historique Offre",
+        "createOrEditLabel": "Create or edit a Historique Offre",
+        "notFound": "No Historique Offres found"
+      },
+      "created": "A new Historique Offre is created with identifier {{ param }}",
+      "updated": "A Historique Offre is updated with identifier {{ param }}",
+      "deleted": "A Historique Offre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Historique Offre {{ id }}?"
+      },
+      "detail": {
+        "title": "Historique Offre"
+      },
+      "id": "ID",
+      "dateHistorique": "Date Historique",
+      "etat": "Etat"
+    }
+  }
+}

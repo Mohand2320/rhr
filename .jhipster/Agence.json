@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090144",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "agence",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Agence",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "ville",
+      "relationshipName": "ville",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "agence",
+      "relationshipName": "agence",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

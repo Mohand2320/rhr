@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090137",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "offre_poste",
+  "fields": [
+    {
+      "fieldName": "nbr",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "exigence",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "OffrePoste entity.\\n@author The AMOUAR MOHAND RACHID.",
+  "jpaMetamodelFiltering": false,
+  "name": "OffrePoste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "orientation",
+      "ownerSide": true,
+      "relationshipName": "orientation",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

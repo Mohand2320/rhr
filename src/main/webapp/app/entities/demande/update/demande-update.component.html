@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-demande-heading" data-cy="DemandeCreateUpdateHeading" jhiTranslate="rhRecrutementApp.demande.home.createOrEditLabel">
+        Créer ou éditer un Demande
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.demande.ref" for="field_ref">Ref</label>
+          <input type="text" class="form-control" name="ref" id="field_ref" data-cy="ref" formControlName="ref" />
+          <div *ngIf="editForm.get('ref')!.invalid && (editForm.get('ref')!.dirty || editForm.get('ref')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('ref')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ref')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 60 }"
+            >
+              Ce champ doit faire moins de 60 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.demande.typeDemande" for="field_typeDemande">Type Demande</label>
+          <select class="form-control" name="typeDemande" formControlName="typeDemande" id="field_typeDemande" data-cy="typeDemande">
+            <option [ngValue]="null">{{ 'rhRecrutementApp.TypeDemande.null' | translate }}</option>
+            <option *ngFor="let typeDemande of typeDemandeValues" [value]="typeDemande">
+              {{ 'rhRecrutementApp.TypeDemande.' + typeDemande | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.demande.dateDepot" for="field_dateDepot">Date Depot</label>
+          <div class="input-group">
+            <input
+              id="field_dateDepot"
+              data-cy="dateDepot"
+              type="text"
+              class="form-control"
+              name="dateDepot"
+              ngbDatepicker
+              #dateDepotDp="ngbDatepicker"
+              formControlName="dateDepot"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDepotDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.demande.etat" for="field_etat">Etat</label>
+          <select class="form-control" name="etat" formControlName="etat" id="field_etat" data-cy="etat">
+            <option [ngValue]="null">{{ 'rhRecrutementApp.Etat.null' | translate }}</option>
+            <option *ngFor="let etat of etatValues" [value]="etat">{{ 'rhRecrutementApp.Etat.' + etat | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.demande.auteur" for="field_auteur">Auteur</label>
+          <select
+            class="form-control"
+            id="field_auteur"
+            data-cy="auteur"
+            name="auteur"
+            formControlName="auteur"
+            [compareWith]="compareAccord"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="accordOption" *ngFor="let accordOption of accordsSharedCollection">{{ accordOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

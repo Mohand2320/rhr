@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "previsionPoste": {
+      "home": {
+        "title": "Prevision Postes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prevision Poste",
+        "createOrEditLabel": "Create or edit a Prevision Poste",
+        "notFound": "No Prevision Postes found"
+      },
+      "created": "A new Prevision Poste is created with identifier {{ param }}",
+      "updated": "A Prevision Poste is updated with identifier {{ param }}",
+      "deleted": "A Prevision Poste is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prevision Poste {{ id }}?"
+      },
+      "detail": {
+        "title": "Prevision Poste"
+      },
+      "id": "ID",
+      "dateAjout": "Date Ajout",
+      "prevision": "Prevision",
+      "poste": "Poste"
+    }
+  }
+}

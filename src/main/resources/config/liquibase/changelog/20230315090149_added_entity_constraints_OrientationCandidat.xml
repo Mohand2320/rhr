@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity OrientationCandidat.
+    -->
+    <changeSet id="20230315090149-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="orientation_candidat_id"
+                                 baseTableName="rel_orientation_candidat__candidat"
+                                 constraintName="fk_rel_orientation_candidat__candidat__orientation_candidat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orientation_candidat"/>
+
+        <addForeignKeyConstraint baseColumnNames="candidat_id"
+                                 baseTableName="rel_orientation_candidat__candidat"
+                                 constraintName="fk_rel_orientation_candidat__candidat__candidat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="candidat"/>
+
+        <addForeignKeyConstraint baseColumnNames="orientation_candidat_id"
+                                 baseTableName="rel_orientation_candidat__orientation"
+                                 constraintName="fk_rel_orientation_candidat__or__orientation_candidat_eb_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orientation_candidat"/>
+
+        <addForeignKeyConstraint baseColumnNames="orientation_id"
+                                 baseTableName="rel_orientation_candidat__orientation"
+                                 constraintName="fk_rel_orientation_candidat__orientation__orientation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orientation"/>
+    </changeSet>
+</databaseChangeLog>

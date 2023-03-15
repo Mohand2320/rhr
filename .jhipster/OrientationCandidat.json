@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090149",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "orientation_candidat",
+  "fields": [
+    {
+      "fieldName": "dateOrientation",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OrientationCandidat",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "candidat",
+      "otherEntityRelationshipName": "orientation",
+      "ownerSide": true,
+      "relationshipName": "candidat",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "orientation",
+      "otherEntityRelationshipName": "candidat",
+      "ownerSide": true,
+      "relationshipName": "orientation",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

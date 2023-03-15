@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity OffrePoste.
+    -->
+    <changeSet id="20230315090137-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="orientation_id"
+                                 baseTableName="offre_poste"
+                                 constraintName="fk_offre_poste__orientation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orientation"/>
+    </changeSet>
+</databaseChangeLog>

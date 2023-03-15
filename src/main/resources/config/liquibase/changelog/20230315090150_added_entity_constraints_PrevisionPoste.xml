@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity PrevisionPoste.
+    -->
+    <changeSet id="20230315090150-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="prevision_poste_id"
+                                 baseTableName="rel_prevision_poste__prevision"
+                                 constraintName="fk_rel_prevision_poste__prevision__prevision_poste_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prevision_poste"/>
+
+        <addForeignKeyConstraint baseColumnNames="prevision_id"
+                                 baseTableName="rel_prevision_poste__prevision"
+                                 constraintName="fk_rel_prevision_poste__prevision__prevision_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prevision"/>
+
+        <addForeignKeyConstraint baseColumnNames="prevision_poste_id"
+                                 baseTableName="rel_prevision_poste__poste"
+                                 constraintName="fk_rel_prevision_poste__poste__prevision_poste_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prevision_poste"/>
+
+        <addForeignKeyConstraint baseColumnNames="poste_id"
+                                 baseTableName="rel_prevision_poste__poste"
+                                 constraintName="fk_rel_prevision_poste__poste__poste_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="poste"/>
+    </changeSet>
+</databaseChangeLog>

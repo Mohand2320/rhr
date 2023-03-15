@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-accord-heading" data-cy="AccordCreateUpdateHeading" jhiTranslate="rhRecrutementApp.accord.home.createOrEditLabel">
+        Créer ou éditer un Accord
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.accord.validateur" for="field_validateur">Validateur</label>
+          <input
+            type="text"
+            class="form-control"
+            name="validateur"
+            id="field_validateur"
+            data-cy="validateur"
+            formControlName="validateur"
+          />
+          <div *ngIf="editForm.get('validateur')!.invalid && (editForm.get('validateur')!.dirty || editForm.get('validateur')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('validateur')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('validateur')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              Ce champ doit faire moins de 30 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.accord.numeroAccord" for="field_numeroAccord">Numero Accord</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroAccord"
+            id="field_numeroAccord"
+            data-cy="numeroAccord"
+            formControlName="numeroAccord"
+          />
+          <div
+            *ngIf="editForm.get('numeroAccord')!.invalid && (editForm.get('numeroAccord')!.dirty || editForm.get('numeroAccord')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numeroAccord')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numeroAccord')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 30 }"
+            >
+              Ce champ doit faire moins de 30 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.accord.dateArrivee" for="field_dateArrivee">Date Arrivee</label>
+          <div class="input-group">
+            <input
+              id="field_dateArrivee"
+              data-cy="dateArrivee"
+              type="text"
+              class="form-control"
+              name="dateArrivee"
+              ngbDatepicker
+              #dateArriveeDp="ngbDatepicker"
+              formControlName="dateArrivee"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateArriveeDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

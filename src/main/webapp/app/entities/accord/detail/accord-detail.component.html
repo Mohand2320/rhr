@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="accord">
+      <h2 data-cy="accordDetailsHeading"><span jhiTranslate="rhRecrutementApp.accord.detail.title">Accord</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ accord.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.accord.validateur">Validateur</span></dt>
+        <dd>
+          <span>{{ accord.validateur }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.accord.numeroAccord">Numero Accord</span></dt>
+        <dd>
+          <span>{{ accord.numeroAccord }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.accord.dateArrivee">Date Arrivee</span></dt>
+        <dd>
+          <span>{{ accord.dateArrivee | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/accord', accord.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

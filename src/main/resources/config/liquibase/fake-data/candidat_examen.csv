@@ -1,0 +1,11 @@
+id;present;admis;reserve;situation
+1;true;true;false;SITUATION1
+2;true;true;false;SITUATION1
+3;false;true;true;SITUATION1
+4;false;true;true;SITUATION1
+5;false;true;false;SITUATION1
+6;true;false;false;SITUATION1
+7;false;false;true;SITUATION1
+8;true;false;true;SITUATION1
+9;true;true;false;SITUATION1
+10;false;true;true;SITUATION1

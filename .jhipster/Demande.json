@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090141",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "demande",
+  "fields": [
+    {
+      "fieldName": "ref",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "typeDemande",
+      "fieldType": "TypeDemande",
+      "fieldValues": "TYPE1,TYPE2"
+    },
+    {
+      "fieldName": "dateDepot",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Etat",
+      "fieldTypeJavadoc": "Recrutement JDL\\n@author  amoura.md.rachid@gmail.com\\n",
+      "fieldValues": "ETAT1,ETAT2"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Demande",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "accord",
+      "ownerSide": true,
+      "relationshipName": "auteur",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
