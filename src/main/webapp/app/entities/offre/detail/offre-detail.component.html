@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="offre">
+      <h2 data-cy="offreDetailsHeading"><span jhiTranslate="rhRecrutementApp.offre.detail.title">Offre</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ offre.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.numeroOffre">Numero Offre</span></dt>
+        <dd>
+          <span>{{ offre.numeroOffre }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.dateOffre">Date Offre</span></dt>
+        <dd>
+          <span>{{ offre.dateOffre | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.dateDepot">Date Depot</span></dt>
+        <dd>
+          <span>{{ offre.dateDepot | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.etatOffre">Etat Offre</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'rhRecrutementApp.Etat.' + offre.etatOffre }}">{{ offre.etatOffre }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.typeOffre">Type Offre</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'rhRecrutementApp.TypeOffre.' + offre.typeOffre }}">{{ offre.typeOffre }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.singnataire">Singnataire</span></dt>
+        <dd>
+          <span>{{ offre.singnataire }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.demande">Demande</span></dt>
+        <dd>
+          <div *ngIf="offre.demande">
+            <a [routerLink]="['/demande', offre.demande.id, 'view']">{{ offre.demande.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.historiqueOffre">Historique Offre</span></dt>
+        <dd>
+          <div *ngIf="offre.historiqueOffre">
+            <a [routerLink]="['/historique-offre', offre.historiqueOffre.id, 'view']">{{ offre.historiqueOffre.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.offre.agence">Agence</span></dt>
+        <dd>
+          <div *ngIf="offre.agence">
+            <a [routerLink]="['/agence', offre.agence.id, 'view']">{{ offre.agence.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/offre', offre.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

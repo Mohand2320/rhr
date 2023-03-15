@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090142",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "accord",
+  "fields": [
+    {
+      "fieldName": "validateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "numeroAccord",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "dateArrivee",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Accord",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

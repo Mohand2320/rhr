@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "offrePoste": {
+      "home": {
+        "title": "OffrePostes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Offre Poste",
+        "createOrEditLabel": "Créer ou éditer un Offre Poste",
+        "notFound": "Aucun Offre Poste trouvé"
+      },
+      "created": "Un nouveau Offre Poste a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Offre Poste avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Offre Poste avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Offre Poste {{ id }} ?"
+      },
+      "detail": {
+        "title": "Offre Poste"
+      },
+      "id": "ID",
+      "nbr": "Nbr",
+      "exigence": "Exigence",
+      "orientation": "Orientation"
+    }
+  }
+}

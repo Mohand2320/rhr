@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="candidatExamen">
+      <h2 data-cy="candidatExamenDetailsHeading">
+        <span jhiTranslate="rhRecrutementApp.candidatExamen.detail.title">Candidat Examen</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ candidatExamen.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.present">Present</span></dt>
+        <dd>
+          <span>{{ candidatExamen.present }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.admis">Admis</span></dt>
+        <dd>
+          <span>{{ candidatExamen.admis }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.reserve">Reserve</span></dt>
+        <dd>
+          <span>{{ candidatExamen.reserve }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.situation">Situation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'rhRecrutementApp.Situation.' + candidatExamen.situation }}">{{ candidatExamen.situation }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.candidat">Candidat</span></dt>
+        <dd>
+          <span *ngFor="let candidat of candidatExamen.candidats; let last = last">
+            <a [routerLink]="['/candidat', candidat.id, 'view']">{{ candidat.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidatExamen.examen">Examen</span></dt>
+        <dd>
+          <span *ngFor="let examen of candidatExamen.examen; let last = last">
+            <a [routerLink]="['/examen', examen.id, 'view']">{{ examen.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/candidat-examen', candidatExamen.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

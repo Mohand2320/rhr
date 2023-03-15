@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "structure": {
+      "home": {
+        "title": "Structures",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Structure",
+        "createOrEditLabel": "Create or edit a Structure",
+        "notFound": "No Structures found"
+      },
+      "created": "A new Structure is created with identifier {{ param }}",
+      "updated": "A Structure is updated with identifier {{ param }}",
+      "deleted": "A Structure is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Structure {{ id }}?"
+      },
+      "detail": {
+        "title": "Structure"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "demande": "Demande",
+      "offre": "Offre"
+    }
+  }
+}

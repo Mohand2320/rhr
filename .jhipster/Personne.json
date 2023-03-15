@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090134",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "personne",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "dateNaissance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$"
+    },
+    {
+      "fieldName": "numeroInscription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOrientation",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Personne",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="examen">
+      <h2 data-cy="examenDetailsHeading"><span jhiTranslate="rhRecrutementApp.examen.detail.title">Examen</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ examen.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.datePrevue">Date Prevue</span></dt>
+        <dd>
+          <span>{{ examen.datePrevue | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.dateExamen">Date Examen</span></dt>
+        <dd>
+          <span>{{ examen.dateExamen | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.etat">Etat</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'rhRecrutementApp.Etat.' + examen.etat }}">{{ examen.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.lieuExamen">Lieu Examen</span></dt>
+        <dd>
+          <span>{{ examen.lieuExamen }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.miniDossier">Mini Dossier</span></dt>
+        <dd>
+          <span>{{ examen.miniDossier }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.examen.offrePoste">Offre Poste</span></dt>
+        <dd>
+          <div *ngIf="examen.offrePoste">
+            <a [routerLink]="['/offre-poste', examen.offrePoste.id, 'view']">{{ examen.offrePoste.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/examen', examen.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

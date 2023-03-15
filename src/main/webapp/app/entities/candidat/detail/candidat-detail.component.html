@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="candidat">
+      <h2 data-cy="candidatDetailsHeading"><span jhiTranslate="rhRecrutementApp.candidat.detail.title">Candidat</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ candidat.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidat.nom">Nom</span></dt>
+        <dd>
+          <span>{{ candidat.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidat.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ candidat.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidat.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ candidat.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidat.tel">Tel</span></dt>
+        <dd>
+          <span>{{ candidat.tel }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.candidat.numeroInscription">Numero Inscription</span></dt>
+        <dd>
+          <span>{{ candidat.numeroInscription }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/candidat', candidat.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="prevision">
+      <h2 data-cy="previsionDetailsHeading"><span jhiTranslate="rhRecrutementApp.prevision.detail.title">Prevision</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ prevision.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.prevision.dateAjout">Date Ajout</span></dt>
+        <dd>
+          <span>{{ prevision.dateAjout | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.prevision.agence">Agence</span></dt>
+        <dd>
+          <div *ngIf="prevision.agence">
+            <a [routerLink]="['/agence', prevision.agence.id, 'view']">{{ prevision.agence.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/prevision', prevision.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

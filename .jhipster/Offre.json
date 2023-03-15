@@ -1,0 +1,64 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090138",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "offre",
+  "fields": [
+    {
+      "fieldName": "numeroOffre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "dateOffre",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateDepot",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etatOffre",
+      "fieldType": "Etat",
+      "fieldTypeJavadoc": "Recrutement JDL\\n@author  amoura.md.rachid@gmail.com\\n",
+      "fieldValues": "ETAT1,ETAT2"
+    },
+    {
+      "fieldName": "typeOffre",
+      "fieldType": "TypeOffre",
+      "fieldValues": "TYPE1,TYPE2"
+    },
+    {
+      "fieldName": "singnataire",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "The Offre entity.",
+  "jpaMetamodelFiltering": false,
+  "name": "Offre",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "demande",
+      "relationshipName": "demande",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "historiqueOffre",
+      "relationshipName": "historiqueOffre",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "agence",
+      "relationshipName": "agence",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

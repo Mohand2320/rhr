@@ -1,0 +1,30 @@
+{
+  "rhRecrutementApp": {
+    "examen": {
+      "home": {
+        "title": "Examen",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Examen",
+        "createOrEditLabel": "Create or edit a Examen",
+        "notFound": "No Examen found"
+      },
+      "created": "A new Examen is created with identifier {{ param }}",
+      "updated": "A Examen is updated with identifier {{ param }}",
+      "deleted": "A Examen is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Examen {{ id }}?"
+      },
+      "detail": {
+        "title": "Examen"
+      },
+      "id": "ID",
+      "datePrevue": "Date Prevue",
+      "dateExamen": "Date Examen",
+      "etat": "Etat",
+      "lieuExamen": "Lieu Examen",
+      "miniDossier": "Mini Dossier",
+      "offrePoste": "Offre Poste",
+      "candidat": "Candidat"
+    }
+  }
+}

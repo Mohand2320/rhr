@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Structure.
+    -->
+    <changeSet id="20230315090147-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="demande_id"
+                                 baseTableName="structure"
+                                 constraintName="fk_structure__demande_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="demande"/>
+
+        <addForeignKeyConstraint baseColumnNames="offre_id"
+                                 baseTableName="structure"
+                                 constraintName="fk_structure__offre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="offre"/>
+    </changeSet>
+</databaseChangeLog>

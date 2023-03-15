@@ -7,6 +7,23 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "personne": "Personne",
+        "candidat": "Candidat",
+        "examen": "Examen",
+        "offrePoste": "Offre Poste",
+        "offre": "Offre",
+        "poste": "Poste",
+        "prevision": "Prevision",
+        "demande": "Demande",
+        "accord": "Accord",
+        "historiqueOffre": "Historique Offre",
+        "agence": "Agence",
+        "ville": "Ville",
+        "orientation": "Orientation",
+        "structure": "Structure",
+        "candidatExamen": "Candidat Examen",
+        "orientationCandidat": "Orientation Candidat",
+        "previsionPoste": "Prevision Poste",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

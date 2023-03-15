@@ -1,0 +1,22 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090145",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ville",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ville",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

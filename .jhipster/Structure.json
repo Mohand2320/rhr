@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090147",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "structure",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Structure",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "demande",
+      "relationshipName": "demande",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "offre",
+      "relationshipName": "offre",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

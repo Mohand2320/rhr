@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="structure">
+      <h2 data-cy="structureDetailsHeading"><span jhiTranslate="rhRecrutementApp.structure.detail.title">Structure</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ structure.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.structure.nom">Nom</span></dt>
+        <dd>
+          <span>{{ structure.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.structure.demande">Demande</span></dt>
+        <dd>
+          <div *ngIf="structure.demande">
+            <a [routerLink]="['/demande', structure.demande.id, 'view']">{{ structure.demande.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="rhRecrutementApp.structure.offre">Offre</span></dt>
+        <dd>
+          <div *ngIf="structure.offre">
+            <a [routerLink]="['/offre', structure.offre.id, 'view']">{{ structure.offre.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/structure', structure.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

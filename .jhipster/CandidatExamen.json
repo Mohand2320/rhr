@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090148",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "candidat_examen",
+  "fields": [
+    {
+      "fieldName": "present",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "admis",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "reserve",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "situation",
+      "fieldType": "Situation",
+      "fieldValues": "SITUATION1"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CandidatExamen",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "candidat",
+      "otherEntityRelationshipName": "examen",
+      "ownerSide": true,
+      "relationshipName": "candidat",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "examen",
+      "otherEntityRelationshipName": "candidat",
+      "ownerSide": true,
+      "relationshipName": "examen",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

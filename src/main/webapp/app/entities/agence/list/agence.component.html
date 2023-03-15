@@ -1,0 +1,107 @@
+<div>
+  <h2 id="page-heading" data-cy="AgenceHeading">
+    <span jhiTranslate="rhRecrutementApp.agence.home.title">Agences</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.agence.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-agence"
+        [routerLink]="['/agence/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.agence.home.createLabel"> Créer un nouveau Agence </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="agences?.length === 0">
+    <span jhiTranslate="rhRecrutementApp.agence.home.notFound">Aucun Agence trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="agences && agences.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="libelle">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.agence.libelle">Libelle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tel">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.agence.tel">Tel</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ville.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.agence.ville">Ville</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agence.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.agence.agence">Agence</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agence of agences; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/agence', agence.id, 'view']">{{ agence.id }}</a>
+          </td>
+          <td>{{ agence.libelle }}</td>
+          <td>{{ agence.tel }}</td>
+          <td>
+            <div *ngIf="agence.ville">
+              <a [routerLink]="['/ville', agence.ville.id, 'view']">{{ agence.ville.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="agence.agence">
+              <a [routerLink]="['/agence', agence.agence.id, 'view']">{{ agence.agence.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/agence', agence.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/agence', agence.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(agence)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

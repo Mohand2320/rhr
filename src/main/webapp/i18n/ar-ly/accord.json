@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "accord": {
+      "home": {
+        "title": "Accords",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Accord",
+        "createOrEditLabel": "Create or edit a Accord",
+        "notFound": "No Accords found"
+      },
+      "created": "A new Accord is created with identifier {{ param }}",
+      "updated": "A Accord is updated with identifier {{ param }}",
+      "deleted": "A Accord is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Accord {{ id }}?"
+      },
+      "detail": {
+        "title": "Accord"
+      },
+      "id": "ID",
+      "validateur": "Validateur",
+      "numeroAccord": "Numero Accord",
+      "dateArrivee": "Date Arrivee"
+    }
+  }
+}

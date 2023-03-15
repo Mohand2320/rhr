@@ -1,0 +1,26 @@
+{
+  "rhRecrutementApp": {
+    "orientation": {
+      "home": {
+        "title": "Orientations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Orientation",
+        "createOrEditLabel": "Create or edit a Orientation",
+        "notFound": "No Orientations found"
+      },
+      "created": "A new Orientation is created with identifier {{ param }}",
+      "updated": "A Orientation is updated with identifier {{ param }}",
+      "deleted": "A Orientation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Orientation {{ id }}?"
+      },
+      "detail": {
+        "title": "Orientation"
+      },
+      "id": "ID",
+      "libelle": "Libelle",
+      "agence": "Agence",
+      "candidat": "Candidat"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20230315090135",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "candidat",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "dateNaissance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^(00|[+])[1-9][0-9]{8,14}$|^0[1-9][0-9]{8,9}$"
+    },
+    {
+      "fieldName": "numeroInscription",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Candidat",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "candidatExamen",
+      "otherEntityRelationshipName": "candidat",
+      "ownerSide": false,
+      "relationshipName": "examen",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "orientationCandidat",
+      "otherEntityRelationshipName": "candidat",
+      "ownerSide": false,
+      "relationshipName": "orientation",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

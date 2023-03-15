@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="OrientationHeading">
+    <span jhiTranslate="rhRecrutementApp.orientation.home.title">Orientations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.orientation.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-orientation"
+        [routerLink]="['/orientation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rhRecrutementApp.orientation.home.createLabel"> Créer un nouveau Orientation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="orientations?.length === 0">
+    <span jhiTranslate="rhRecrutementApp.orientation.home.notFound">Aucun Orientation trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="orientations && orientations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="libelle">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.orientation.libelle">Libelle</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agence.id">
+            <div class="d-flex">
+              <span jhiTranslate="rhRecrutementApp.orientation.agence">Agence</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orientation of orientations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/orientation', orientation.id, 'view']">{{ orientation.id }}</a>
+          </td>
+          <td>{{ orientation.libelle }}</td>
+          <td>
+            <div *ngIf="orientation.agence">
+              <a [routerLink]="['/agence', orientation.agence.id, 'view']">{{ orientation.agence.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/orientation', orientation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/orientation', orientation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(orientation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

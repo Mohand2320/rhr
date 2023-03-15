@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-prevision-heading"
+        data-cy="PrevisionCreateUpdateHeading"
+        jhiTranslate="rhRecrutementApp.prevision.home.createOrEditLabel"
+      >
+        Créer ou éditer un Prevision
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.prevision.dateAjout" for="field_dateAjout">Date Ajout</label>
+          <div class="input-group">
+            <input
+              id="field_dateAjout"
+              data-cy="dateAjout"
+              type="text"
+              class="form-control"
+              name="dateAjout"
+              ngbDatepicker
+              #dateAjoutDp="ngbDatepicker"
+              formControlName="dateAjout"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateAjoutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('dateAjout')!.invalid && (editForm.get('dateAjout')!.dirty || editForm.get('dateAjout')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dateAjout')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rhRecrutementApp.prevision.agence" for="field_agence">Agence</label>
+          <select
+            class="form-control"
+            id="field_agence"
+            data-cy="agence"
+            name="agence"
+            formControlName="agence"
+            [compareWith]="compareAgence"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="agenceOption" *ngFor="let agenceOption of agencesSharedCollection">{{ agenceOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
